@@ -25,27 +25,28 @@
 // T.C: O(N)
 // S.C: O(1)
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 bool threeConsecutiveOdds(vector<int>& arr) {
-        int count=0;
-        for(auto val:arr){
-            if(val%2==1){
-                count++;
-                if(count>=3){
-                    return 1;
-                }
+    int count = 0;
+    for (int val : arr) {
+        if (val % 2 == 1) { // Check if the number is odd
+            count++;
+            if (count >= 3) {
+                return true;
             }
-            else{
-                count=0;
-            }
+        } else {
+            count = 0; // Reset count if the number is even
         }
-        return 0;
+    }
+    return false;
 }
 
-int main(){
-    vector<int> arr={1,2,34,3,4,5,7,23,12};
-    cout<<threeConsecutiveOdds(arr);
+int main() {
+    vector<int> arr = {1, 2, 34, 3, 4, 5, 7, 23, 12}; // Example input
+    cout << (threeConsecutiveOdds(arr) ? "true" : "false") << endl;
     return 0;
 }
